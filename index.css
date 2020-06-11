@@ -1,0 +1,130 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  height: 100px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(
+    -90deg,
+    rgb(162, 0, 255),
+    rgb(45, 0, 243)
+  ); /* Standard syntax (must be last) */
+}
+
+#container {
+  margin: auto;
+  margin-top: 100px;
+  padding-left: 50%;
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  /* margin: 100px; */
+  padding: 100px;
+
+  border-radius: 23px 23px 23px 23px;
+  border: 0px solid #850085;
+}
+h1 {
+  text-align: center;
+}
+#form {
+  order: 1;
+  width: 700px;
+
+  /* align-content: center; */
+  /* background-color: chocolate; */
+  /* padding-right: 200px; */
+  /* padding-left: 200px; */
+}
+div#elements div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#elements {
+  font-size: 20px;
+  margin-top: 7%;
+  margin-bottom: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.popup {
+  height: 35px;
+  width: 300px;
+  border: 1px solid;
+  /* padding: 10px; */
+  border-radius: 10px;
+}
+#icon {
+  order: 2;
+  width: 300px;
+  max-width: 100%;
+  padding-right: 0px;
+  /* background-color: crimson; */
+}
+/* ///////////////////////////IMG WITH ANIMATION/////////////////// */
+img:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+/* /////////////////////////////////////////////////////////////////// */
+
+#submitContainer {
+  order: 3;
+  margin-right: 50%;
+  margin-left: 25%;
+  /* background-color: cornflowerblue; */
+  padding: 50px;
+}
+#submitButton {
+  color: white;
+  font-size: 20px;
+  background-color: #4caf50;
+  border: 1px solid;
+  /* padding: 10px; */
+  border-radius: 15px;
+  border: none;
+  width: 400px;
+  height: 70px;
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .containerG {
+    width: 100%; 
+  }
