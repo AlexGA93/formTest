@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="text/javascript" src="responsive.js"></script>
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="responsive.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
       rel="stylesheet"
@@ -16,117 +21,189 @@
     />
     <title>Document</title>
   </head>
-  <body id="panel">
-    <!-- global container -->
-    <div class="containerG" id="container">
-      <!-- Form -->
-      <form id="form" class="formElement">
-        <h1 id="title" style="font-size:2vw;">Request's data</h1>
-        <div id="elements">
-          <!-- name -->
-          <div>
-            <label class="name" id="nameField" name="name">Name: </label>
-            <br />
-            <input
-              id="myText"
-              class="popup"
-              type="text"
-              onclick="myFunction('myText',1)"
-              placeholder=" "
-            /><br />
+  <body>
+    <div class="containerS">
+      <div class="containerG" id="container">
+        <div class="elemPanel">
+          <div class="elemForm">
+            <!-- Form -->
+            <form id="form" class="formElement" action="API.php">
+              <h1 id="title" style="font-size: 2vw;">Request's data</h1>
+              <div id="elements">
+                <!-- name -->
+                <div>
+                  <label class="name" id="nameField">Name: </label>
+                  <br />
+                  <input
+                    name="name"
+                    id="myText"
+                    class="popup"
+                    type="text"
+                    onclick="myFunction('myText',1)"
+                    placeholder=" "
+                  /><br />
+                </div>
+                <!-- last name -->
+                <div>
+                  <label class="secondName" id="SnameField">Last Name: </label>
+                  <br />
+                  <input
+                    name="sname"
+                    id="myText2"
+                    class="popup"
+                    type="text"
+                    onclick="myFunction('myText2',2)"
+                    placeholder=" "
+                  /><br />
+                </div>
+                <!-- age -->
+                <div>
+                  <label class="age" id="ageField">Age: </label>
+                  <br />
+                  <input
+                    name="age"
+                    id="myText3"
+                    class="popup"
+                    type="text"
+                    onclick="myFunction('myText3',3)"
+                    placeholder=" "
+                  />
+                </div>
+                <div id="functionElem" class="functionClass">
+                  <label>Function:</label>
+                  <select id="mySelect" class="popup" name="option">
+                    <option selected></option>
+                    <option
+                      id="emailElement"
+                      value="email"
+                      onclick="selectedOption('emailElement')"
+                      >Send Email</option
+                    >
+                    <option
+                      id="apiElement"
+                      value="api"
+                      onclick="selectedOption('apiElement')"
+                      >Make a request to an API</option
+                    >
+                  </select>
+                </div>
+                <div>
+                  <!-- CONTENEDOR PARA DIBUJAR Y BORRAR CAMPOS -->
+                  <!-- /////////////////////////  EMAIL SECTION  /////////////////////////////////////// -->
+                  <div hidden id="renderedEmail">
+                    <!-- email -->
+                    <div>
+                      <label class="email" id="emailField">Email: </label>
+                      <br />
+                      <input
+                        name="email"
+                        id="myText4"
+                        class="popup"
+                        type="text"
+                        onclick="myFunction('myText4',4)"
+                        placeholder=" "
+                      /><br />
+                    </div>
+                    <!-- password -->
+                    <div>
+                      <label class="psswd" id="passField">Password: </label>
+                      <br />
+                      <input
+                        name="password"
+                        id="myText5"
+                        class="popup"
+                        type="text"
+                        onclick="myFunction('myText5',5)"
+                        placeholder=""
+                      /><br />
+                    </div>
+                  </div>
+                  <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+                  <!-- /////////////////////////  API SECTION  /////////////////////////////////////// -->
+                  <!-- 
+                    Reddit's Api calling
+                  -->
+                  <div hidden id="renderedApi">
+                    <br />
+                    <label class="url" id="urlField">Type of Request</label>
+                    <br />
+                    <select id="mySelect2" class="popup" name="option">
+                      <option selected name="apiselection"></option>
+                      <option
+                        name="apiselection"
+                        id="POST"
+                        value="post"
+                        onclick="selectedRequestOption('POST')"
+                        >POST</option
+                      >
+                      <option
+                        name="apiselection"
+                        id="GET"
+                        value="get"
+                        onclick="selectedRequestOption('GET')"
+                        >GET</option
+                      >
+
+                      <option
+                        name="apiselection"
+                        id="DELETE"
+                        value="delete"
+                        onclick="selectedRequestOption('DELETE')"
+                        >DELETE</option
+                      >
+                    </select>
+                    <br />
+                    <label hidden class="url" id="url001" name="urlName"
+                      >URL</label
+                    >
+                    <br hidden id="url002" />
+                    <input
+                      name="url"
+                      hidden
+                      id="url003"
+                      class="popup"
+                      type="text"
+                      onclick="myFuntion('myText6',6)"
+                    />
+                  </div>
+                  <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+                </div>
+
+                <!-- Checkbox -->
+                <div class="fw200 dIB vat mL5">
+                  <input
+                    id="privacyTool"
+                    type="checkbox"
+                    onclick="checkbox(this)"
+                    checked="false"
+                  />
+                  <span style="color: red;">*</span> I checked my data to fill
+                  this form.
+                  <a
+                    href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F1200%2F1*0KFB17_NGTPB0XWyc4BSgQ.jpeg&f=1&nofb=1"
+                    >Privacy Policy
+                  </a>
+                </div>
+              </div>
+            </form>
+            <!-- ICON -->
+            <div id="icon" class="icon js-tilt" data-tilt>
+              <img id="photo" src="imgs/img-01.jpg" alt="IMG" />
+            </div>
           </div>
-          <!-- last name -->
-          <div>
-            <label class="secondName" id="SnameField" name="sname">Last Name: </label>
-            <br />
-            <input
-              id="myText2"
-              class="popup"
-              type="text"
-              onclick="myFunction('myText2',2)"
-              placeholder=" "
-            /><br />
-          </div>
-          <!-- age -->
-          <div>
-            <label class="age" id="ageField" name="age">Age: </label>
-            <br />
-            <input
-              id="myText3"
-              class="popup"
-              type="text"
-              onclick="myFunction('myText3',3)"
-              placeholder=" "
-            /><br />
-          </div>
-          <!-- email -->
-          <div>
-            <label class="email" id="emailField" name="email">Email: </label>
-            <br />
-            <input
-              id="myText4"
-              class="popup"
-              type="text"
-              onclick="myFunction('myText4',4)"
-              placeholder=" "
-            /><br />
-          </div>
-          <!-- password -->
-          <div>
-            <label class="psswd" id="passField" name="password">Password: </label>
-            <br />
-            <input
-              id="myText5"
-              class="popup"
-              type="text"
-              onclick="myFunction('myText5',5)"
-              placeholder=""
-            /><br />
-          </div>
-          <!-- Captcha -->
-          <div class="fw200 dIB vat mL5">
-            <input
-              autocomplete="off"
-              onclick="disableSubmit()"
-              id="privacyTool"
-              type="checkbox"
-              name="privacyTool"
-            /><span class="chkbxIcon"></span>
-            <span style="color: red;">*</span> I checked my data to fill this
-            form.
-            <a
-              href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F1200%2F1*0KFB17_NGTPB0XWyc4BSgQ.jpeg&f=1&nofb=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Privacy Policy</a
+          <!-- Submit button & alert -->
+          <div id="submitContainer">
+            <button
+              disabled
+              class="button"
+              id="submitButton"
+              type="submit"
+              onclick="pressSubmit()"
             >
+              Submit
+            </button>
           </div>
         </div>
-        
-      </form>
-      <!-- ICON -->
-      <div id="icon" class="icon js-tilt" data-tilt>
-        <img id="photo" src="imgs/img-01.jpg" alt="IMG" />
-      </div>
-      <!-- Submit button & alert -->
-      <div id='submitContainer'>
-        <input
-        style='opacity:0.5;' 
-        id='submitButton'
-        disabled 
-        type='submit' 
-        value='Submit' 
-        
-        disabled
-        onclick="pressSubmit()"
-        >
-          
-      </input>
-
-        <!-- <div hidden id="alert" class="alert success">
-          <span class="closebtn">&times;</span>
-          <strong>Success!</strong> Thanks for send us the info!
-        </div> -->
       </div>
     </div>
   </body>

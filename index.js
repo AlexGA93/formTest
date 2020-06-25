@@ -1,7 +1,67 @@
+/*//////////////////////////////////////////////////////////////////////
+Rendering html elements in function that whose <option></option> is selected
+//////////////////////////////////////////////////////////////////////*/
+function checkbox(termsCheckBox) {
+  console.log("checked!");
+  //If the checkbox has been checked
+  if (termsCheckBox.checked) {
+    document.getElementById("submitButton").disabled = false; //Set the disabled property to FALSE and enable the button.
+    document.getElementById("submitButton").style.opacity = "1"; //quit opacity
+  } else {
+    document.getElementById("submitButton").disabled = true; //Otherwise, disable the submit button.
+    document.getElementById("submitButton").style.opacity = "0.5"; //quit opacity
+  }
+}
+
+function selectedOption(id) {
+  //console.log("element: " + id);
+
+  if (id == "emailElement") {
+    document.getElementById("renderedEmail").removeAttribute("hidden");
+    document.getElementById("renderedApi").hidden = "true";
+  } else if (id == "apiElement") {
+    document.getElementById("renderedApi").removeAttribute("hidden");
+    document.getElementById("renderedEmail").hidden = "true";
+  } else {
+    document.getElementById("renderedEmail").hidden = "true";
+    document.getElementById("renderedApi").hidden = "true";
+  }
+  //unhide renderedElem and write elements
+}
+
+////////////////////////////////////////
 function popUpDrawing(id, text) {
   //console.log(text);
   //write in input's placeholder
   document.getElementById(id).placeholder = text;
+}
+function selectedRequestOption(request) {
+  $("#form").attr("method", request.toLowerCase());
+
+  if (request == "GET") {
+    document.getElementById("url001").removeAttribute("hidden");
+    document.getElementById("url002").removeAttribute("hidden");
+    document.getElementById("url003").removeAttribute("hidden");
+  } else {
+    document.getElementById("url001").hidden = "true";
+    document.getElementById("url002").hidden = "true";
+    document.getElementById("url003").hidden = "true";
+  }
+  switch (request) {
+    case "POST":
+      console.log("POST");
+      // form elements and call php API(response: "thank  you message")
+      break;
+    case "GET":
+      //write url element
+      console.log("GET");
+      // take URL parameter to the api (response: Actual Json)
+      break;
+    case "DELETE":
+      console.log("DELETE");
+      // taking email form to the api -> locate user's email and delete him ( response: updated json)
+      break;
+  }
 }
 function myFunction(id, data) {
   switch (data) {
@@ -27,67 +87,11 @@ function myFunction(id, data) {
       break;
   }
 }
-function disableSubmit() {
-  console.log("captcha pressed!");
-  var isprivacyToolAvail = false;
-  var isconsentToolAvail = false;
-  var bothtoolAvail = false;
-  var privacytool = "";
-  var consenttool = "";
-  var submitbutton = document.getElementById("submitButton");
-  var style = (style1 = submitbutton.getAttribute("style"));
-  style = style.replace("opacity:0.5;", "");
-  if (style1.indexOf("opacity:0.5") < 0) {
-    style1 = " ";
-  }
-  if (
-    document.getElementById("privacyTool") != undefined &&
-    document.getElementById("consentTool") != undefined
-  ) {
-    isprivacyToolAvail = true;
-    privacytool = document.getElementById("privacyTool");
-    isconsentToolAvail = true;
-    consenttool = document.getElementById("consentTool");
-    bothtoolAvail = true;
-  }
+// function disableSubmit() {
+//   console.log("captcha pressed!");
+// }
 
-  if (document.getElementById("privacyTool") != undefined) {
-    isprivacyToolAvail = true;
-    privacytool = document.getElementById("privacyTool");
-  }
-  if (document.getElementById("consentTool") != undefined) {
-    isconsentToolAvail = true;
-    consenttool = document.getElementById("consentTool");
-  }
-  if (
-    submitbutton.hasAttribute("disabled") &&
-    bothtoolAvail &&
-    consenttool.checked &&
-    privacytool.checked
-  ) {
-    submitbutton.removeAttribute("disabled");
-    submitbutton.setAttribute("style", style);
-  } else if (
-    submitbutton.hasAttribute("disabled") &&
-    isprivacyToolAvail &&
-    privacytool.checked &&
-    consenttool == ""
-  ) {
-    submitbutton.removeAttribute("disabled");
-    submitbutton.setAttribute("style", style);
-  } else if (
-    submitbutton.hasAttribute("disabled") &&
-    isconsentToolAvail &&
-    consenttool.checked &&
-    privacytool == ""
-  ) {
-    submitbutton.removeAttribute("disabled");
-    submitbutton.setAttribute("style", style);
-  } else {
-    submitbutton.setAttribute("disabled", true);
-    submitbutton.setAttribute("style", style1);
-  }
-}
 function pressSubmit() {
+  //draw 'success' pannel
   console.log("button pressed!");
 }

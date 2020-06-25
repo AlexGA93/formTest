@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: "Josefin Sans", sans-serif;
   height: 100px;
@@ -8,57 +11,78 @@ body {
     rgb(45, 0, 243)
   ); /* Standard syntax (must be last) */
 }
-
+.containerS {
+  margin-right: 10%;
+  margin-left: 10%;
+}
 #container {
-  margin: auto;
-  margin-top: 100px;
-  padding-left: 50%;
-  width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: 10%;
+  padding-top: 200px;
+  padding-bottom: 200px;
+
+  text-align: center;
+  min-height: 30vw;
   background-color: white;
-  /* margin: 100px; */
-  padding: 100px;
 
   border-radius: 23px 23px 23px 23px;
-  border: 0px solid #850085;
-}
-h1 {
-  text-align: center;
-}
-#form {
-  order: 1;
-  width: 700px;
-
-  /* align-content: center; */
-  /* background-color: chocolate; */
-  /* padding-right: 200px; */
-  /* padding-left: 200px; */
-}
-div#elements div {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-#elements {
-  font-size: 20px;
-  margin-top: 7%;
-  margin-bottom: 10%;
-  margin-left: 30%;
-  margin-right: 30%;
+  box-shadow: 7px 7px;
 }
 .popup {
   height: 35px;
   width: 300px;
   border: 1px solid;
   /* padding: 10px; */
-  border-radius: 10px;
+  border-radius: 5px;
+}
+#mySelect {
+  margin-left: 12%;
+}
+#functionElem {
+  display: flex;
+  flex-direction: column;
+}
+.elemPanel {
+  margin-left: 30%;
+  margin-right: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+.elemForm {
+  align-items: center;
+}
+/* Elements must be responsive putting themselves in column */
+#form {
+  margin-right: 20px;
+  float: left;
+  /*  background-color: blueviolet; */
 }
 #icon {
-  order: 2;
-  width: 300px;
+  margin-left: 15px;
+  float: left;
+  /* background-color: black; */
+}
+.fw200 {
+  margin-top: 10px;
+}
+.button {
+  opacity: 0.5;
+
+  margin-top: 20px;
+  color: white;
+  font-size: 20px;
+  background-color: #4caf50;
+  border: 1px solid;
+  /* padding: 10px; */
+  border-radius: 15px;
+  border: none;
+  width: 400px;
+  height: 70px;
+}
+#photo {
   max-width: 100%;
-  padding-right: 0px;
-  /* background-color: crimson; */
+  height: auto;
 }
 /* ///////////////////////////IMG WITH ANIMATION/////////////////// */
 img:hover {
@@ -102,29 +126,3 @@ img:hover {
   }
 }
 /* /////////////////////////////////////////////////////////////////// */
-
-#submitContainer {
-  order: 3;
-  margin-right: 50%;
-  margin-left: 25%;
-  /* background-color: cornflowerblue; */
-  padding: 50px;
-}
-#submitButton {
-  color: white;
-  font-size: 20px;
-  background-color: #4caf50;
-  border: 1px solid;
-  /* padding: 10px; */
-  border-radius: 15px;
-  border: none;
-  width: 400px;
-  height: 70px;
-}
-
-
-
-@media screen and (max-width: 800px) {
-  .containerG {
-    width: 100%; 
-  }
